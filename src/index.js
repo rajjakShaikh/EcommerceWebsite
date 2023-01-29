@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+
+
+
 root.render(
-  <React.StrictMode>
+  <Auth0Provider
+  domain="dev-w1n0jm8yno1gonhi.us.auth0.com"
+  clientId="yfiWzXWAnTArIHPNEO1BMZWR6eCsbaPl"
+  authorizationParams={{
+    redirect_uri: window.location.origin
+  }}
+>
+ 
+
 <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
 
 <script
@@ -22,7 +34,8 @@ root.render(
 <script src="https://kit.fontawesome.com/b6d957f8f4.js" crossorigin="anonymous"></script>
 
     <App />
-  </React.StrictMode>
+</Auth0Provider>
+
   
 );
 
