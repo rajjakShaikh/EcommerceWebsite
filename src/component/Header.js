@@ -3,22 +3,26 @@ import "./headingStyle.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import Table from "react-bootstrap/Table";
-import {DLT} from '../Redux/actions/action'
+import { DLT } from "../Redux/actions/action";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import {
   FaFacebookSquare,
   FaInstagramSquare,
- 
   FaYoutubeSquare,
 } from "react-icons/fa";
+
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Menu from '@mui/material/Menu';
+import Menu from "@mui/material/Menu";
 
 const Header = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
+
+  const { loginWithRedirect } = useAuth0();
+  const { logout, isAuthenticated, user } = useAuth0();
 
   const [price, setPrice] = useState(0);
   // console.log(price);
@@ -92,9 +96,32 @@ const Header = () => {
             <li>
               <NavLink to="/Contact">contact</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/Login">login</NavLink>
-            </li>
+            </li> */}
+
+            {isAuthenticated && <p>{user.name} </p>}
+
+            {isAuthenticated ? (
+              <li>
+                <button
+                  className="logbtn"
+                  onClick={() =>
+                    logout({
+                      logoutParams: { returnTo: window.location.origin },
+                    })
+                  }
+                >
+                  Log Out
+                </button>
+              </li>
+            ) : (
+              <li>
+                <button className="logbtn" onClick={() => loginWithRedirect()}>
+                  Log In
+                </button>
+              </li>
+            )}
 
             <div>
               <Badge
@@ -111,8 +138,6 @@ const Header = () => {
             </div>
           </ul>
         </div>
-
-       
 
         {/* 3rd social media links */}
         <div className="social-media">
@@ -151,69 +176,101 @@ const Header = () => {
           </div>
         </div>
         <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                    }}
-                >
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          {getdata.length ? (
+            <div
+              className="card_details"
+              style={{ width: "24rem", padding: 10 }}
+            >
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Photo</th>
+                    <th>Shoes Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {getdata.map((e) => {
+                    return (
+                      <>
+                        <tr>
+                          <td>
+                            <NavLink to={`/cart/${e.id}`} onClick={handleClose}>
+                              <img
+                                src={e.img}
+                                style={{ width: "7rem", height: "6rem" }}
+                                alt=""
+                              />
+                            </NavLink>
+                          </td>
+                          <td>
+                            <h4>{e.title}</h4>
+                            <h4>Price : ₹{e.price}</h4>
+                            <h4>Quantity : {e.qnty}</h4>
+                            <p
+                              style={{
+                                color: "red",
+                                fontSize: 20,
+                                cursor: "pointer",
+                              }}
+                              onClick={() => dlt(e.id)}
+                            >
+                              <i className="fas fa-trash"></i>
+                            </p>
+                          </td>
 
-                    {
-                        getdata.length ? 
-                        <div className='card_details' style={{width:"24rem",padding:10}}>
-                            <Table>
-                                <thead>
-                                    <tr>
-                                        <th>Photo</th>
-                                        <th>Shoes Name</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        getdata.map((e)=>{
-                                            return (
-                                                <>
-                                                    <tr>
-                                                        <td>
-                                                        <NavLink to={`/cart/${e.id}`}   onClick={handleClose}>
-                                                        <img src={e.img} style={{width:"7rem",height:"6rem"}} alt="" />
-                                                        </NavLink>   
-                                                        </td>
-                                                        <td>
-                                                            <h4>{e.title}</h4>
-                                                            <h4>Price : ₹{e.price}</h4>
-                                                            <h4>Quantity : {e.qnty}</h4>
-                                                            <p style={{color:"red",fontSize:20,cursor:"pointer"}} onClick={()=>dlt(e.id)}>
-                                                                <i className='fas fa-trash'></i>
-                                                            </p>
-                                                        </td>
-
-                                                        <td className='mt-5'style={{color:"red",fontSize:20,cursor:"pointer"}}  onClick={()=>dlt(e.id)}>
-                                                        <i className='fas fa-trash largetrash'></i>
-                                                        </td>
-                                                    </tr>
-                                                </>
-                                            )
-                                        })
-                                    }
-                                    <h4 className='text-center'>Total :₹{price}</h4>
-                                </tbody>
-                            </Table>
-                        </div>:
-                        
-                   <div className='card_details d-flex justify-content-center align-items-center' style={{width:"24rem",padding:10,position:"relative"}}>
-                    <i className='fas fa-close smallclose'
-                    onClick={handleClose}
-                     style={{position:"absolute",top:2,right:20,fontSize:23,cursor:"pointer"}}></i>
-                    <p style={{fontSize:18}}>Your carts is empty</p>
-                    <img src="cart.gif" alt="" className='emptycart_img' style={{width:"9rem",padding:10}} />
-                   </div>
-
-                    }
-
-                </Menu>
+                          <td
+                            className="mt-5"
+                            style={{
+                              color: "red",
+                              fontSize: 20,
+                              cursor: "pointer",
+                            }}
+                            onClick={() => dlt(e.id)}
+                          >
+                            <i className="fas fa-trash largetrash"></i>
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })}
+                  <h4 className="text-center">Total :₹{price}</h4>
+                </tbody>
+              </Table>
+            </div>
+          ) : (
+            <div
+              className="card_details d-flex justify-content-center align-items-center"
+              style={{ width: "24rem", padding: 10, position: "relative" }}
+            >
+              <i
+                className="fas fa-close smallclose"
+                onClick={handleClose}
+                style={{
+                  position: "absolute",
+                  top: 2,
+                  right: 20,
+                  fontSize: 23,
+                  cursor: "pointer",
+                }}
+              ></i>
+              <p style={{ fontSize: 18 }}>Your carts is empty</p>
+              <img
+                src="cart.gif"
+                alt=""
+                className="emptycart_img"
+                style={{ width: "9rem", padding: 10 }}
+              />
+            </div>
+          )}
+        </Menu>
       </nav>
     </>
   );

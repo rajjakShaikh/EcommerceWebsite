@@ -33,7 +33,7 @@ function Home() {
           className="d-block w-100"
           src="../images/padelshoe2.jpeg"
           alt="Third slide"
-        style={{height:"50rem"}}/>
+        style={{height:"40rem"}}/>
        
       </Carousel.Item>
     </Carousel>

@@ -2,7 +2,7 @@
  import About from "./component/About"
 //  import Service from "./component/Service"
  import Contact from "./component/Contact"
- import Login from "./component/Login"
+//  import Login from "./component/Login"
  import Men from "./component/Men"
  import Women from "./component/Women"
  import Kids from "./component/Kids"
@@ -30,7 +30,7 @@ function App() {
           <Route path="/About" element={<About />} />
           {/* <Route path="/Service" element={<Service />} /> */}
           <Route path="/Contact" element={<Contact />} />
-          <Route path="/Login" element={<Login />} />
+          {/* <Route path="/Login" element={<Login />} /> */}
 
           <Route path="/*" element={<Navigate to="/Notfound" />} />
 

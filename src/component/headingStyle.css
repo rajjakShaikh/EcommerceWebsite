@@ -28,6 +28,7 @@
       /* padding: auto 10rem; */
       display: grid;
       grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
+      background-color: azure;
     }
 
     .logo {
@@ -420,3 +421,39 @@ font-size: 12px;
 .homepageimage{
 justify-content: center;
 display: inline-block;}
+
+
+.logbtn{
+ 
+    background-color: #2540cb;
+    border-radius: 8px;
+    box-shadow: rgba(31, 119, 174, 0.2) 0 -25px 18px -14px inset,rgba(41, 57, 163, 0.15) 0 1px 2px,rgba(52, 79, 174, 0.15) 0 2px 4px,rgba(16, 26, 171, 0.15) 0 4px 8px,rgba(54, 37, 143, 0.15) 0 8px 16px,rgba(85, 68, 180, 0.15) 0 16px 32px;
+    color:white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 15px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .logbtn:hover {
+    box-shadow: rgba(20, 35, 202, 0.35) 0 -25px 18px -14px inset,rgba(70, 74, 108, 0.25) 0 1px 2px,rgba(82, 59, 135, 0.25) 0 2px 4px,rgba(41, 38, 177, 0.25) 0 4px 8px,rgba(82, 34, 170, 0.25) 0 8px 16px,rgba(83, 35, 177, 0.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+    font-size: 12px;
+    padding: 0px 10px;
+  }
+  .container.mt-2{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+   width: 50rem;
+   height: 45rem;
+   padding-top: 5rem;
+   margin-top: 5rem;
+  }
+
