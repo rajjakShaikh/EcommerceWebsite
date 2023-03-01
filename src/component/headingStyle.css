@@ -187,7 +187,7 @@
 
       .mobile-menu-link {
         background-color: white;
-        height: 20rem;
+        height: 28rem;
         display: grid;
         grid-column: 2/5;
         align-items: center;
@@ -456,4 +456,3 @@ display: inline-block;}
    padding-top: 5rem;
    margin-top: 5rem;
   }
-

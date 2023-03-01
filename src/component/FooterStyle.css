@@ -3,10 +3,13 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 } */ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
 .footer_container{
 width: 100%;
 height: 40rem;
-background-color: rgba(40, 20, 20, 0.594);
+background-color: #24262b;
 border: 1px solid grey;
 margin-top: 10rem;
 border-bottom: 1px;
@@ -22,38 +25,48 @@ padding: 51px;
 justify-content: space-evenly;
 }
 
+.footer_main ul{
+line-height: 3.5;
+
+}
+
 .footer_main ul h4{
      font-size: 20px;
      color: rgb(212, 200, 200);
+     font-family: 'Poppins', sans-serif;
+
 }
 
 .footer_main ul li a{
 text-decoration: none;
-color: black;
+line-height: 1.5;
+color: gray;
 font-size: 15px;
 font-family: sans-serif;
 cursor: pointer;
-text-size-adjust: 1px
-;
+text-size-adjust: 1px;
+font-family: 'Poppins', sans-serif;
+
 
 }
 
 .footer_main ul li a:hover{
      font-size: 17px;
-     color: silver;
-     text-decoration: underline;
-}
+      color: #ffffff;
+      padding-left: 5px;
+      transition: all 0.3s ease;
+    }
 
-.social-media-desktop-footer{
-display: flex;
-}
 
 .icons_footer{
 margin-left: 44rem;
 }
 .icons_footer h4{
-     color: rgb(212, 200, 200);
-     margin-left: 10rem;
+  color: rgb(200, 78, 78);
+  margin-left: 16rem;
+  font-weight: bold;
+  font-size: 14px;
+
 
 }
 .social-media ul li:first-child {
@@ -83,14 +96,15 @@ margin-left: 44rem;
    }
 
 .social-media-desktop-footer {
-     justify-content: space-evenly;
-     margin-left: -54rem;
-     font-size: 25px;
-     padding-top: 19px;
-     cursor: pointer;
-     margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+        margin-left: -41rem;
+        font-size: 25px;
+        padding-top: 16px;
+        cursor: pointer;
+        margin-bottom: 4rem;
+    }
     
-} 
 
 .social-media-desktop-footer:hover{
 font-size: 2rem;

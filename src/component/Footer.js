@@ -16,7 +16,7 @@ export default function Footer() {
       <div className='footer_main'>
         <ul>
          <h4> Shops </h4>
-        <li> <Link href="#"> Mens shoes </Link>  </li>
+        <li> <Link href="./Men"> Mens shoes </Link>  </li>
       
         <li> <Link href="#"> Women shoes </Link>  </li>
         <li> <Link href="#"> Kids shoes </Link>  </li>
@@ -27,9 +27,9 @@ export default function Footer() {
 
 <ul>
          <h4> Company </h4>
-        <li> <Link href="#"> Connect with metro </Link>  </li>
+        <li> <Link href="#"> Connect with shoesHub </Link>  </li>
       
-        <li> <Link href="#"> About metro shoes </Link>  </li>
+        <li> <Link href="#"> About metro shoesHub </Link>  </li>
         <li> <Link href="#"> Careers </Link>  </li>
         <li> <Link href="#">FAQs </Link>  </li>
 

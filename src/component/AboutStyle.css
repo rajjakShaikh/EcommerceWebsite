@@ -1,0 +1,17 @@
+.aboutOne{
+     text-align: center;
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0%;
+}
+.aboutOne span{
+color: red;
+}
+.aboutM p{
+color:grey;
+font-size: medium;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}

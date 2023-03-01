@@ -10,6 +10,7 @@ import Notfound  from "./component/Notfound"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CardDetails from "./component/CardDetails"
+import Addproduct from "./component/Addproduct"
 
 
 import { Provider } from "react-redux"
@@ -26,11 +27,11 @@ function App() {
           <Route path="/Men" element={<Men />} />
           <Route path="/Women" element={<Women />} />
           <Route path="/Kids" element={<Kids />} />
+          <Route path="/add" element={< Addproduct/>} />
+
 
           <Route path="/About" element={<About />} />
-          {/* <Route path="/Service" element={<Service />} /> */}
           <Route path="/Contact" element={<Contact />} />
-          {/* <Route path="/Login" element={<Login />} /> */}
 
           <Route path="/*" element={<Navigate to="/Notfound" />} />
 

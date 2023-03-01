@@ -71,9 +71,7 @@ const Header = () => {
         {/* 2nd menu part  */}
         <div
           className={
-            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
-          }
-        >
+            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"}>
           <ul>
             <li>
               <NavLink to="/">Home</NavLink>
@@ -90,17 +88,12 @@ const Header = () => {
             <li>
               <NavLink to="/About">about</NavLink>
             </li>
-            {/* <li>
-              <NavLink to="/Service">service</NavLink>
-            </li> */}
             <li>
               <NavLink to="/Contact">contact</NavLink>
             </li>
-            {/* <li>
-              <NavLink to="/Login">login</NavLink>
-            </li> */}
+            
 
-            {isAuthenticated && <p>{user.name} </p>}
+            {isAuthenticated && <h1>{user.name} </h1>}
 
             {isAuthenticated ? (
               <li>
